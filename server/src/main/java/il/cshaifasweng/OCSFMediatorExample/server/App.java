@@ -9,10 +9,10 @@ import java.io.IOException;
 public class App 
 {
 
-	private static GameServer server;
+	private static XOServer server;
     public static void main( String[] args ) throws IOException
     {
-        server = new GameServer(3000);
+        server = new XOServer(3000);
         server.listen();
     }
 }
