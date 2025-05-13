@@ -11,10 +11,22 @@ import il.cshaifasweng.OCSFMediatorExample.server.ocsf.SubscribedClient;
 
 public class SimpleServer extends AbstractServer {
 	private static ArrayList<SubscribedClient> SubscribersList = new ArrayList<>();
-
+	private static int idCounter = 0;
 	public SimpleServer(int port) {
 		super(port);
 		
+	}
+
+	@Override
+	protected void clientConnected(ConnectionToClient client) {
+		super.clientConnected(client);
+		try
+		{
+			client.sendToClient("#id "+idCounter);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		idCounter++;
 	}
 
 	@Override

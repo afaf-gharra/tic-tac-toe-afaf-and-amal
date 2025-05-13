@@ -61,6 +61,7 @@ public class App extends Application {
         					event.getWarning().getTime().toString())
         	);
         	alert.show();
+
     	});
     	
     }
