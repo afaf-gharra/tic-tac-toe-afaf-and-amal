@@ -2,12 +2,11 @@ package il.cshaifasweng.OCSFMediatorExample.client;
 
 import il.cshaifasweng.OCSFMediatorExample.client.ocsf.AbstractClient;
 import org.greenrobot.eventbus.EventBus;
-import java.io.IOException;
 
-public class XOClient extends AbstractClient {
+public class SimpleClient extends AbstractClient {
     private EventBus eventBus = EventBus.getDefault();
 
-    public XOClient(String host, int port) {
+    public SimpleClient(String host, int port) {
         super(host, port);
     }
 

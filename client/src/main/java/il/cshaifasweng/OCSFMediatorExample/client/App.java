@@ -19,10 +19,9 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.IOException;
-import java.util.Objects;
 
-public class XOGame extends Application {
-    private XOClient client;
+public class App extends Application {
+    private SimpleClient client;
     private char myMark;
     private char currentTurn;
     private Stage primaryStage;
@@ -59,7 +58,7 @@ public class XOGame extends Application {
         Scene scene = new Scene(root, 300, 350);
         primaryStage.setScene(scene);
 
-        client = new XOClient("localhost", 3000);
+        client = new SimpleClient("localhost", 3000);
         try {
             client.openConnection();
         } catch (IOException e) {
@@ -77,7 +76,7 @@ public class XOGame extends Application {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onServerMessage(XOClient.ServerMessageEvent event) {
+    public void onServerMessage(SimpleClient.ServerMessageEvent event) {
         String message = event.getMessage();
         Platform.runLater(() -> {
             if (message.startsWith("WELCOME")) {

@@ -7,12 +7,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XOServer extends AbstractServer {
+public class SimpleServer extends AbstractServer {
     private char currentPlayer = 'X';
     private char[][] grid = new char[3][3];
     private List<ConnectionToClient> clients = new ArrayList<>();
 
-    public XOServer(int port) {
+    public SimpleServer(int port) {
         super(port);
     }
 
@@ -114,12 +114,4 @@ public class XOServer extends AbstractServer {
         clients.remove(client);
     }
 
-    public static void main(String[] args) {
-        XOServer server = new XOServer(3000);
-        try {
-            server.listen();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
