@@ -383,9 +383,14 @@ public abstract class AbstractClient implements Runnable
       // Doing so allows, but does not require, any finalizers
       // of these objects to reclaim system resources if and
       // when they are garbage collected.
+        if (clientSocket != null){
+          System.out.println("Client closed: " + clientSocket.getInetAddress() + ":" + clientSocket.getPort());
+
+        }
       output = null;
       input = null;
       clientSocket = null;
+
     }
   }
 }

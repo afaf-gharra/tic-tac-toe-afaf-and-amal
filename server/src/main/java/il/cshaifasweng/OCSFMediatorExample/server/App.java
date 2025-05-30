@@ -8,7 +8,7 @@ import java.io.IOException;
  */
 public class App 
 {
-	
+
 	private static SimpleServer server;
     public static void main( String[] args ) throws IOException
     {
